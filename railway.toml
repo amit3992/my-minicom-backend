@@ -1,0 +1,8 @@
+[build]
+command = "make build"
+
+[deploy]
+start = "java -jar build/libs/app.jar"
+
+[env]
+PORT = "8080"
