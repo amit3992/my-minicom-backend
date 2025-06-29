@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.18")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.5")
     }
 }
 
@@ -35,7 +35,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.springframework.ai:spring-ai-core:0.8.1'
     implementation 'org.springframework.ai:spring-ai-openai:0.8.1'
-    implementation 'org.springframework.ai:spring-ai-chroma-store:0.8.1'
+    implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter:0.8.1'
     implementation 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
     // Add other providers as needed:
