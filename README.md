@@ -16,7 +16,7 @@ From the project root run  `script/spring/start`
 
 This project uses an in-memory database called H2.
 
-Access the database by navigating to http://localhost:3000/h2-console/login.jsp. The current schema and creation commands are located in `schema.sql`. To update the tables, you will have to run similar SQL commands directly in the console.
+Access the database by navigating to http://localhost:8080/h2-console/login.jsp. The current schema and creation commands are located in `schema.sql`. To update the tables, you will have to run similar SQL commands directly in the console.
 
 ### Database credentials
 If the setup script doesn't prepopulate the correct URL, be sure to use the one below.
