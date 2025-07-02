@@ -30,7 +30,7 @@ INSERT INTO messages (user_id, content, message_read, created_at, updated_at) VA
                                                                                   (1, 'What scopes are required for admin endpoints?', false, '2025-06-30 20:45:07', '2025-06-30 20:45:07'),
                                                                                   (1, 'How do I use webhooks with Intercom?', true, '2025-06-30 20:45:08', '2025-06-30 20:45:08'),
                                                                                   (1, 'Is there a sandbox for testing API integrations?', false, '2025-06-30 20:45:09', '2025-06-30 20:45:09'),
-                                                                                  (1, 'Where can I find the API changelog?', true, '2025-06-30 20:45:10', '2025-06-30 20:45:10');
+                                                                                  (1, 'This documentation is outdated and sucks?', true, '2025-06-30 20:45:10', '2025-06-30 20:45:10');
 
 -- MESSAGES FOR USER 2
 INSERT INTO messages (user_id, content, message_read, created_at, updated_at) VALUES

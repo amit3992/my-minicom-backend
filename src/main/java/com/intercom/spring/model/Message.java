@@ -37,8 +37,8 @@ public class Message {
     public void setContent(String content) { this.content = content; }
     public Boolean getMessageRead() { return messageRead; }
     public void setMessageRead(Boolean messageRead) { this.messageRead = messageRead; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public String getCreatedAt() { return createdAt.toString(); }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public String getUpdatedAt() { return updatedAt.toString(); }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }

@@ -1,5 +1,6 @@
 package com.intercom.spring.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.ChatClient;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class OpenAIService {
     private final ChatClient chatClient;
@@ -37,5 +39,30 @@ public class OpenAIService {
         var userMessage = new UserMessage(userQuery);
         Prompt prompt = new Prompt(List.of(similarDocsMessage, userMessage));
         return chatClient.call(prompt).getResult().getOutput().getContent();
+    }
+
+    /**
+     * Checks the sentiment of a message using the LLM. Returns one of: POSITIVE, NEUTRAL, NEGATIVE.
+     * @param messageContent the message to analyze
+     * @return sentiment as a String (POSITIVE, NEUTRAL, or NEGATIVE)
+     */
+    public String checkSentiment(String messageContent) {
+        String systemPrompt = "You are a helpful assistant. Analyze the sentiment of the following message. Respond with only one word: POSITIVE, NEUTRAL, or NEGATIVE. Do not provide any explanation.";
+        try {
+            var systemMessage = new SystemPromptTemplate(systemPrompt).createMessage(Map.of());
+            var userMessage = new UserMessage(messageContent);
+            Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
+            String response = chatClient.call(prompt).getResult().getOutput().getContent();
+            // Normalize and validate response
+            response = response.trim().toUpperCase();
+            if (!response.equals("POSITIVE") && !response.equals("NEUTRAL") && !response.equals("NEGATIVE")) {
+                return "NEUTRAL";
+            }
+            return response;
+        } catch (Exception e) {
+            // Log the exception (use your preferred logging framework)\
+            log.error("Error during sentiment analysis", e);
+            return "NEUTRAL";
+        }
     }
 }
